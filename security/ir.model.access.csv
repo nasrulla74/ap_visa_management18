@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_visa_fees,xpat_visa_fees,model_visa_fees,base.group_user,1,1,1,1
+access_slot_fees,xpat_slot_fees,model_slot_fees,base.group_user,1,1,1,1

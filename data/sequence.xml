@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+<!--         <record id="seq_register_sequence" model="ir.sequence">-->
+<!--            <field name="name">Register</field>-->
+<!--            <field name="code">hotel.register</field>-->
+<!--            <field name="company_id" eval="False"/>-->
+<!--        </record>-->
+
+
+        
+    </data>
+
+
+
+
+
+</odoo>

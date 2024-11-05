@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="action_xpat_slot_fees" model="ir.actions.act_window">
+		<field name="name">Slot Fees</field>
+		<field name="res_model">slot.fees</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree,form</field>
+<!--		<field name="domain">[('is_room', '=', True)]</field>-->
+<!--		<field name="context">{'default_is_room': True}</field>-->
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+            Create a Slot Fee
+          </p>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="xpat_slot_fees_tree">
+		<field name="name">Slot fee</field>
+		<field name="model">slot.fees</field>
+		<field name="arch" type="xml">
+			<tree string="Slot Fees">
+				<field name="date_paid"/>
+				<field name="name"/>
+				<field name="description" />
+				<field name="rate" />
+				<field name="months"/>
+				<field name="amount"/>
+				<field name="state"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="view_xpat_slot_fees_form" model="ir.ui.view">
+		<field name="name">xpat.slot.fees</field>
+		<field name="model">slot.fees</field>
+		<field name="arch" type="xml">
+			<form string="Slot Fees">
+				<sheet>
+
+					<group>
+						<group>
+							<field name="slot_app_id" readonly="1" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+							<field name="name" placeholder="Name"/>
+							<field name="description" />
+							<field name="slot_expiry" />
+							<field name="state" invisible="1"/>
+						</group>
+						<group>
+
+							<field name="date_paid"/>
+							<field name="rate" default_focus="1"/>
+							<field name="months"/>
+							<field name="amount"/>
+							<field name="paid_until"/>
+
+
+						</group>
+
+					</group>
+
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+
+	<record id="win_action_xpat_slot_fees_form" model="ir.actions.act_window">
+        <field name="name">Pay Slot Fee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">slot.fees</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_xpat_slot_fees_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+
+</odoo>

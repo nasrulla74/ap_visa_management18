@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="hr_recruitment_view_form_inherit_appeul" model="ir.ui.view">
+                <field name="name">hr.applicant.view.form.inherit.appeul</field>
+                <field name="model">hr.applicant</field>
+                <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='partner_mobile']" position="after">
+                        <field name="permanent_address" />
+                    </xpath>
+                     <xpath expr="//field[@name='permanent_address']" position="after">
+                        <field name="current_address" />
+                    </xpath>
+                    <xpath expr="//field[@name='categ_ids']" position="before">
+                        <field name="visa_type" string="Visa Type"/>
+                    </xpath>
+                    <xpath expr="//field[@name='visa_type']" position="before">
+                        <field name="arrival_date" string="Arrival Date"/>
+                    </xpath>
+
+
+                    <xpath expr="//field[@name='categ_ids']" position="after">
+                        <field name="partner_id" string="Customer/Client"/>
+                    </xpath>
+                    <xpath expr="//field[@name='partner_id']" position="after">
+                        <field name="passport_number" />
+                    </xpath>
+
+                    <xpath expr="//field[@name='passport_number']" position="after">
+                        <field name="pp_expiry" />
+                    </xpath>
+                    <xpath expr="//field[@name='pp_expiry']" position="after">
+                        <field name="mobile_number" />
+                    </xpath>
+
+                    <xpath expr="//field[@name='passport_number']" position="after">
+                        <field name="nationality" />
+                    </xpath>
+                    <xpath expr="//field[@name='nationality']" position="after">
+                        <field name="birth_date" />
+                    </xpath>
+                    <xpath expr="//field[@name='birth_date']" position="after">
+                        <field name="emergency_contact_name" />
+                    </xpath>
+                    <xpath expr="//field[@name='emergency_contact_name']" position="after">
+                        <field name="emergency_contact_number" />
+                    </xpath>
+                    <xpath expr="//field[@name='current_address']" position="after">
+                        <field name="work_type_id" />
+                    </xpath>
+                    <xpath expr="//field[@name='work_type_id']" position="after">
+                        <field name="work_site_id" />
+                    </xpath>
+                    <xpath expr="//field[@name='work_site_id']" position="after">
+                        <field name="xpat_position" />
+                    </xpath>
+                    <xpath expr="//field[@name='xpat_position']" position="after">
+                        <field name="remuneration" />
+                    </xpath>
+                    <xpath expr="//field[@name='remuneration']" position="after">
+                        <field name="sponsor_name" />
+                    </xpath>
+                    <xpath expr="//field[@name='sponsor_name']" position="after">
+                        <field name="sponsor_position" />
+                    </xpath>
+                    <xpath expr="//field[@name='sponsor_position']" position="after">
+                        <field name="apply_date" />
+                    </xpath>
+
+
+                    <xpath expr="//field[@name='user_id']" position="before">
+                        <field name="other_benefits" />
+                    </xpath>
+                     <xpath expr="//field[@name='other_benefits']" position="after">
+                        <field name="working_hours" />
+                    </xpath>
+
+                    <xpath expr="//field[@name='working_hours']" position="after">
+                        <field name="salary_payment" />
+                    </xpath>
+
+                    <xpath expr="//field[@name='salary_payment']" position="after">
+                        <field name="gender" />
+                    </xpath>
+
+                    <xpath expr="//field[@name='gender']" position="after">
+                        <field name="is_married" />
+                    </xpath>
+
+                    <xpath expr="//field[@name='availability']" position="before">
+                        <field name="contract_start" />
+                    </xpath>
+                     <xpath expr="//field[@name='contract_start']" position="after">
+                        <field name="contract_end" />
+                    </xpath>
+                     <xpath expr="//field[@name='contract_end']" position="after">
+                        <field name="contract_status_id" />
+                    </xpath>
+
+                    <xpath expr="//field[@name='visa_type']" position="after">
+                        <field name="wp_number" />
+                    </xpath>
+                    <xpath expr="//field[@name='wp_number']" position="after">
+                        <field name="wp_expiry" />
+                    </xpath>
+                    <xpath expr="//field[@name='wp_expiry']" position="after">
+                        <field name="card_expiry" />
+                    </xpath>
+                    <xpath expr="//field[@name='card_expiry']" position="after">
+                        <field name="insurance_expiry" />
+                    </xpath>
+                    <xpath expr="//field[@name='insurance_expiry']" position="after">
+                        <field name="slot_expiry" />
+                    </xpath>
+                    <xpath expr="//field[@name='slot_expiry']" position="after">
+                        <field name="medical_expiry" />
+                    </xpath>
+                    <xpath expr="//field[@name='medical_expiry']" position="after">
+                        <field name="departure_date" />
+                    </xpath>
+
+
+
+                     <field name='source_id' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                     <field name='partner_phone' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                    <field name='partner_mobile' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                    <field name='email_cc' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                    <field name='interviewer_ids' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                        <field name='priority' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                    <field name='medium_id' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+
+                    <field name='salary_expected' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+
+                    <field name='salary_proposed' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                    <field name='availability' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                    <field name='type_id' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                    <field name='linkedin_profile' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+                        <field name='salary_proposed_extra' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field><field name='salary_expected_extra' position="attributes">
+                        <attribute name="invisible">1</attribute>
+                     </field>
+
+
+                </field>
+        </record>
+</odoo>

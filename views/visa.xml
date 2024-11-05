@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="xpat_visa_fees" model="ir.actions.act_window">
+		<field name="name">Visa Fees</field>
+		<field name="res_model">visa.fees</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree,form</field>
+<!--		<field name="domain">[('is_room', '=', True)]</field>-->
+<!--		<field name="context">{'default_is_room': True}</field>-->
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+            Create a Visa Fee
+          </p>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="xpat_visa_fees_tree">
+		<field name="name">Visa fee</field>
+		<field name="model">visa.fees</field>
+		<field name="arch" type="xml">
+			<tree string="Visa Fees">
+				<field name="date_paid"/>
+				<field name="name"/>
+				<field name="rate" />
+				<field name="months"/>
+				<field name="amount"/>
+				<field name="state"/>
+				<field name="description" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="view_xpat_visa_fees_form" model="ir.ui.view">
+		<field name="name">xpat.visa.fees</field>
+		<field name="model">visa.fees</field>
+		<field name="arch" type="xml">
+			<form string="Visa Fees">
+				<sheet>
+
+					<group>
+						<group>
+							<field name="visa_app_id" readonly="1" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+							<field name="name" placeholder="Name"/>
+							<field name="description" />
+							<field name="wp_expiry" />
+							<field name="state" invisible="1"/>
+						</group>
+						<group>
+
+							<field name="date_paid"/>
+							<field name="rate" default_focus="1"/>
+							<field name="months"/>
+							<field name="amount"/>
+							<field name="paid_until"/>
+
+
+						</group>
+
+					</group>
+
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+
+	<record id="win_action_xpat_visa_fees_form" model="ir.actions.act_window">
+        <field name="name">Pay Visa Fee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">visa.fees</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_xpat_visa_fees_form"/>
+        <field name="target">new</field>
+    </record>
+<!--    <menuitem-->
+<!--            id="xpat_visa_fees_main_menu"-->
+<!--            name="Visa Management"-->
+<!--			parent=""-->
+<!--              sequence="0"-->
+<!--			action="xpat_visa_fees"-->
+<!--	/>-->
+
+
+
+</odoo>
