@@ -4,7 +4,7 @@
 		<field name="name">Slot Fees</field>
 		<field name="res_model">slot.fees</field>
 		<field name="type">ir.actions.act_window</field>
-		<field name="view_mode">tree,form</field>
+		<field name="view_mode">list,form</field>
 <!--		<field name="domain">[('is_room', '=', True)]</field>-->
 <!--		<field name="context">{'default_is_room': True}</field>-->
 		<field name="help" type="html">
@@ -13,11 +13,11 @@
           </p>
 		</field>
 	</record>
-	<record model="ir.ui.view" id="xpat_slot_fees_tree">
+	<record model="ir.ui.view" id="xpat_slot_fees_list">
 		<field name="name">Slot fee</field>
 		<field name="model">slot.fees</field>
 		<field name="arch" type="xml">
-			<tree string="Slot Fees">
+			<list string="Slot Fees">
 				<field name="date_paid"/>
 				<field name="name"/>
 				<field name="description" />
@@ -25,7 +25,7 @@
 				<field name="months"/>
 				<field name="amount"/>
 				<field name="state"/>
-			</tree>
+			</list>
 		</field>
 	</record>
 

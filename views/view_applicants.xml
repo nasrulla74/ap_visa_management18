@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-	<record model="ir.ui.view" id="xpat_visa_fees_applicant_tree">
+	<record model="ir.ui.view" id="xpat_visa_fees_applicant_list">
 		<field name="name">Visa Management</field>
 		<field name="model">hr.applicant</field>
 		<field name="arch" type="xml">
-			<tree string="Visa Fees" create="1">
+			<list string="Visa Fees" create="1">
 				<field name="partner_name"/>
 				<field name="wp_number" />
 				<field name="slot_expiry"/>
@@ -15,19 +15,19 @@
 				<field name="card_expiry"/>
 				<field name="nationality"/>
 				<field name="stage_id"/>
-			</tree>
+			</list>
 		</field>
 	</record>
 
 
 	<record id="xpat_visa_fees_applicant_from" model="ir.ui.view">
-		<field name="name">xpat.visa.fees.applicant.tree</field>
+		<field name="name">xpat.visa.fees.applicant.form</field>
 		<field name="model">hr.applicant</field>
 		<field name="arch" type="xml">
 			<form string="Visa Appelications">
 				<header>
-						<button name="%(win_action_xpat_visa_fees_form)d" type="action" string="PAY VISA FEE" class="btn-primary" context="{'default_visa_app_id': active_id}"/>
-						<button name="%(win_action_xpat_slot_fees_form)d" type="action" string="PAY SLOT FEE" class="btn-primary" context="{'default_slot_app_id': active_id}"/>
+<!--						<button name="%(win_action_xpat_visa_fees_form)d" type="action" string="PAY VISA FEE" class="btn-primary" context="{'default_visa_app_id': active_id}"/>-->
+<!--						<button name="%(win_action_xpat_slot_fees_form)d" type="action" string="PAY SLOT FEE" class="btn-primary" context="{'default_slot_app_id': active_id}"/>-->
 				</header>
 				<sheet>
 
@@ -85,28 +85,12 @@
 				<field name="stage_id"/>
 				<field name="wp_number"/>
 				<field name="partner_id"/>
+				<field name="client_id"/>
 
                 <separator/>
-<!--                <filter name="filter_today_departure" string="Today's Departures" domain="[-->
-<!--                ('dep_date', '&gt;=', (datetime.datetime.combine(context_today(), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-%d %H:%M:%S')),-->
-<!--                ('dep_date', '&lt;=', (datetime.datetime.combine(context_today(), datetime.time(23,59,59)).to_utc()).strftime('%Y-%m-%d %H:%M:%S'))-->
-<!--                ]"/>-->
-<!--                <filter name="filter_tomorrow_departure" string="Tomorrow's Departures" domain="[-->
-<!--                ('dep_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(days=+1), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-%d %H:%M:%S')),-->
-<!--                ('dep_date', '&lt;=', (datetime.datetime.combine(context_today() + relativedelta(days=+1), datetime.time(23,59,59)).to_utc()).strftime('%Y-%m-%d %H:%M:%S'))-->
-<!--                ]"/>-->
-<!--                <filter name="filter_next30days_departure" string="Next 30 Days Departures" domain="[-->
-<!--                ('dep_date', '&gt;=', (datetime.datetime.combine(context_today(), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-%d %H:%M:%S')),-->
-<!--                ('dep_date', '&lt;=', (datetime.datetime.combine(context_today() + relativedelta(days=+30), datetime.time(23,59,59)).to_utc()).strftime('%Y-%m-%d %H:%M:%S'))-->
-<!--                ]"/>-->
-<!--                <separator/>-->
-<!--                 <group expand="0" string="Group by Room">-->
-<!--&lt;!&ndash;                    <filter name="group_by_state" context="{'group_by' : 'reg_state'}"/>&ndash;&gt;-->
-<!--                    <filter name="group_by_room" context="{'group_by' : 'room_id'}"/>-->
-<!--                </group>-->
 
                 <searchpanel>
-                    <field name="partner_id" enable_counters="1" />
+                    <field name="client_id" enable_counters="1" />
                 </searchpanel>
 
 			</search>
@@ -118,13 +102,13 @@
 		<field name="name">Visa Applications</field>
 		<field name="res_model">hr.applicant</field>
 		<field name="type">ir.actions.act_window</field>
-		<field name="view_mode">tree,form</field>
+		<field name="view_mode">list,form</field>
 		<field name="domain">[('stage_id', '=', 'Arrived')]</field>
 		<field name="search_view_id" ref="xpat_visa_fees_applicant_search"/>
 <!--		<field name="context">{'default_is_room': True}</field>-->
 		<field name="view_ids"
                 eval="[(5, 0, 0),
-                    (0, 0, {'sequence': 2, 'view_mode': 'tree', 'view_id': ref('xpat_visa_fees_applicant_tree')}),
+                    (0, 0, {'sequence': 2, 'view_mode': 'list', 'view_id': ref('xpat_visa_fees_applicant_list')}),
                     (0, 0, {'sequence': 3, 'view_mode': 'form', 'view_id': ref('xpat_visa_fees_applicant_from')}),
                 ]"/>
 

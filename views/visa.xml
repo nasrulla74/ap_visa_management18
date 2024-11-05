@@ -4,7 +4,7 @@
 		<field name="name">Visa Fees</field>
 		<field name="res_model">visa.fees</field>
 		<field name="type">ir.actions.act_window</field>
-		<field name="view_mode">tree,form</field>
+		<field name="view_mode">list,form</field>
 <!--		<field name="domain">[('is_room', '=', True)]</field>-->
 <!--		<field name="context">{'default_is_room': True}</field>-->
 		<field name="help" type="html">
@@ -13,11 +13,11 @@
           </p>
 		</field>
 	</record>
-	<record model="ir.ui.view" id="xpat_visa_fees_tree">
+	<record model="ir.ui.view" id="xpat_visa_fees_list">
 		<field name="name">Visa fee</field>
 		<field name="model">visa.fees</field>
 		<field name="arch" type="xml">
-			<tree string="Visa Fees">
+			<list string="Visa Fees">
 				<field name="date_paid"/>
 				<field name="name"/>
 				<field name="rate" />
@@ -25,7 +25,7 @@
 				<field name="amount"/>
 				<field name="state"/>
 				<field name="description" />
-			</tree>
+			</list>
 		</field>
 	</record>
 
